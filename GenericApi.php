@@ -55,21 +55,21 @@ class GenericApi
             $params
         );
 
-		try {
-			$response = $this->client->request(
-	    		strtoupper($method),
-	    		$endpoint,
-	    		$params
-	    	);
-		}
-		catch(ClientException $e) {
-			if($e->getCode() === 401 && method_exists($this, 'authorize')) {
-				$this->authorize();
-				return $this->request($method, $endpoint, $params);
-			}
+    	try {
+    		$response = $this->client->request(
+        		strtoupper($method),
+        		$endpoint,
+        		$params
+        	);
+    	}
+    	catch(ClientException $e) {
+    		if($e->getCode() === 401 && method_exists($this, 'authorize')) {
+    			$this->authorize();
+    			return $this->request($method, $endpoint, $params);
+    		}
 
-			throw $e;
-		}
+    		throw $e;
+    	}
 
     	return json_decode($response
     		->getBody()
