@@ -1,0 +1,20 @@
+{
+    "name": "chrgriffin/generic-api",
+    "description": "Simple base class for any API that uses bearer token authentication.",
+    "license": "MIT",
+    "require": {
+        "php": ">=5.6.0",
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "authors": [
+        {
+            "name": "Christian Griffin",
+            "email": "c.griffin@arcane.ws"
+        }
+    ],
+    "autoload": {
+        "classmap": [
+            "GenericApi.php"
+        ]
+    }
+}
